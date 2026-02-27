@@ -1,0 +1,15 @@
+/* App specific styles */
+.App {
+  min-height: 100vh;
+}
+
+/* Ensure dark mode by default */
+.App.dark {
+  background-color: #0A0A0A;
+  color: #FFFFFF;
+}
+
+/* Override any light mode leaks */
+* {
+  color-scheme: dark;
+}

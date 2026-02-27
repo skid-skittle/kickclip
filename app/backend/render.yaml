@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: kicknow-backend
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn server:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.0
+      - key: MONGO_URL
+        sync: false
+      - key: DB_NAME
+        value: test_database
+      - key: CORS_ORIGINS
+        value: *
+      - key: EMERGENT_LLM_KEY
+        sync: false
+      - key: JWT_SECRET_KEY
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false

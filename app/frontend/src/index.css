@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 4%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 7%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 7%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 145 100% 39%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 0 0% 7%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 12%;
+  --muted-foreground: 240 5% 65%;
+  --accent: 0 0% 12%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 12%;
+  --input: 0 0% 12%;
+  --ring: 145 100% 39%;
+  --radius: 0.75rem;
+  --chart-1: 145 100% 39%;
+  --chart-2: 145 80% 50%;
+  --chart-3: 145 60% 60%;
+  --chart-4: 145 40% 70%;
+  --chart-5: 145 20% 80%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0A0A0A;
+  color: #FFFFFF;
+}
+
+code, .font-mono {
+  font-family: 'Geist Mono', 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1F1F1F;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2A2A2A;
+}
+
+/* Glassmorphism Effects */
+.glass {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+  background: rgba(18, 18, 18, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid #1F1F1F;
+}
+
+/* Kick Green Glow */
+.glow-green {
+  box-shadow: 0 0 20px rgba(0, 200, 83, 0.3);
+}
+
+.glow-green-hover:hover {
+  box-shadow: 0 0 30px rgba(0, 200, 83, 0.5);
+}
+
+/* Text Gradient */
+.text-gradient-green {
+  background: linear-gradient(135deg, #00C853 0%, #00E676 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hero Gradient Background */
+.hero-gradient {
+  background: radial-gradient(circle at top center, rgba(0, 200, 83, 0.15), transparent 60%);
+}
+
+/* Animations */
+@keyframes pulse-green {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(0, 200, 83, 0);
+  }
+}
+
+.pulse-green {
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out forwards;
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out forwards;
+}
+
+/* Heatmap Timeline */
+.heatmap-bar {
+  background: linear-gradient(90deg, 
+    rgba(0, 200, 83, 0.2) 0%,
+    rgba(0, 200, 83, 0.8) 30%,
+    rgba(0, 200, 83, 0.3) 50%,
+    rgba(0, 200, 83, 1) 70%,
+    rgba(0, 200, 83, 0.4) 100%
+  );
+}
+
+/* Virality Score Badge */
+.virality-high {
+  background: rgba(0, 200, 83, 0.15);
+  border-color: rgba(0, 200, 83, 0.3);
+  color: #00C853;
+}
+
+.virality-medium {
+  background: rgba(234, 179, 8, 0.15);
+  border-color: rgba(234, 179, 8, 0.3);
+  color: #EAB308;
+}
+
+.virality-low {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #EF4444;
+}
+
+/* Video Player Container */
+.video-container {
+  aspect-ratio: 9/16;
+  max-height: 70vh;
+}
+
+/* Mobile responsive video */
+@media (max-width: 768px) {
+  .video-container {
+    max-height: 50vh;
+  }
+}
+
+/* Loading spinner */
+.spinner {
+  border: 3px solid #1F1F1F;
+  border-top: 3px solid #00C853;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Custom focus styles */
+input:focus, textarea:focus, select:focus, button:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: #00C853;
+}
+
+/* Shadcn overrides for dark theme */
+[data-radix-popper-content-wrapper] {
+  z-index: 50 !important;
+}
+
+.dark {
+  --background: 0 0% 4%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 7%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 7%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 145 100% 39%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 0 0% 7%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 12%;
+  --muted-foreground: 240 5% 65%;
+  --accent: 0 0% 12%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 12%;
+  --input: 0 0% 12%;
+  --ring: 145 100% 39%;
+}
+
+/* Ensure debug wrapper doesn't break layout */
+@layer base {
+  [data-debug-wrapper="true"] {
+    display: contents !important;
+  }
+}
